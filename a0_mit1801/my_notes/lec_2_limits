@@ -1,0 +1,75 @@
+# Lec 2: Limits and Continuity — Tổng hợp (Feynman notes)
+
+## 1. Đạo hàm — góc nhìn thứ hai: Rate of Change
+
+Lec 1 nhìn đạo hàm là **độ dốc**. Lec 2 nhìn nó là **tốc độ thay đổi**
+(instantaneous rate of change).
+
+Ví dụ: s = quãng đường theo t → ds/dt = vận tốc.
+
+Ví dụ cụ thể: quả dưa rơi, h = 80 − 5t²
+
+- Vận tốc trung bình t=0→4: Δh/Δt = (0−80)/4 = **−20 m/s**
+- Vận tốc tức thời tại t=4: dh/dt = −10t → thay t=4 → **−40 m/s**
+
+Hai con số khác nhau: trung bình = cả hành trình; tức thời = ngay thời điểm đó
+(giống đồng hồ tốc độ xe).
+
+## 2. Hai loại giới hạn
+
+- **Dễ:** thay số trực tiếp. VD: lim(x→4) (x+3)/(x²+1) — thay x=4 là xong.
+- **Khó:** cho ra dạng 0/0 (như định nghĩa đạo hàm). Cần biến đổi đại số
+  trước khi lấy giới hạn — kỹ thuật đã dùng ở Lec 1.
+
+## 3. Giới hạn trái / phải
+
+- lim(x→x₀⁺) f(x): tiến tới x₀ từ bên phải (x > x₀)
+- lim(x→x₀⁻) f(x): tiến tới x₀ từ bên trái (x < x₀)
+
+VD: f(x) = x+1 (x>0), f(x) = −x+2 (x<0)
+→ lim(x→0⁺) = 1, lim(x→0⁻) = 2 → hai bên khác nhau → hàm "gãy" tại 0.
+
+## 4. Định nghĩa tính liên tục
+
+> f liên tục tại x₀ ⟺ lim(x→x₀) f(x) = f(x₀)
+
+Gồm 3 điều kiện đồng thời:
+1. Giới hạn trái = giới hạn phải (đều tồn tại)
+2. f(x₀) có xác định
+3. Giá trị giới hạn = đúng bằng f(x₀)
+
+Hiểu nôm na: đồ thị không đứt, không lỗ — vẽ không cần nhấc bút.
+
+## 5. Ba kiểu gián đoạn (discontinuity)
+
+| Kiểu | Đặc điểm | Ví dụ |
+|---|---|---|
+| Jump | giới hạn trái ≠ phải | hàm x+1 / −x+2 ở trên |
+| Removable | trái = phải nhưng hàm không xác định đúng điểm đó (có "lỗ") | sin(x)/x tại x=0, giới hạn =1 nhưng hàm ko xác định tại 0 |
+| Infinite | hàm bay vọt lên/xuống vô cực | y=1/x tại x=0: phải=+∞, trái=−∞ |
+
+## 6. Định lý: Khả vi ⟹ Liên tục (nhưng chiều ngược SAI)
+
+**Nếu f khả vi tại x₀ → f liên tục tại x₀.**
+Trực giác: đồ thị đứt/có lỗ thì không vẽ được tiếp tuyến có nghĩa.
+
+**Liên tục KHÔNG đảm bảo khả vi.** Ví dụ kinh điển: y = |x| tại x=0.
+
+- Đồ thị không đứt, không lỗ → liên tục ✓
+- Nhưng độ dốc từ bên phải (Δx>0): Δf/Δx = 1; từ bên trái (Δx<0): Δf/Δx = −1
+  → hai giá trị khác nhau → giới hạn không tồn tại → **không khả vi**
+
+Về hình học: |x| tại 0 có một "góc nhọn" — không mượt, nên không có MỘT tiếp
+tuyến duy nhất thỏa cả hai phía.
+
+**Ghi nhớ:**
+- Liên tục = đồ thị không đứt, không lỗ
+- Khả vi = đồ thị còn phải **mượt** (độ dốc hai bên phải khớp nhau)
+- Khả vi ⟹ Liên tục luôn đúng; Liên tục ⇏ Khả vi (trừ khi đồ thị còn mượt)
+
+## 7. Liên hệ AI/ML
+
+Hàm **ReLU** = max(0, x) có hình dạng giống hệt |x| tại x=0: liên tục nhưng
+không khả vi. Vì vậy khi cài đặt, người ta **quy ước thủ công** đạo hàm tại
+x=0 (thường gán = 0) thay vì tính theo công thức, vì về toán học nó không
+tồn tại tại điểm đó.
